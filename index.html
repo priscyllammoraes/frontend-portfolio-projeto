@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Portfólio de Projetos</title>
+</head>
+<body>
+    <script src="./scripts.js"></script>
+    
+    <header>
+        <div class="header_left"><img src="./imagens/logo.png" alt="Logo"></div>
+        <div class="header_right"></div>
+    </header>
+
+    <main>
+        <section>            
+            <h2>Adicionar Projeto</h2>
+                        
+            <form id="formProjeto">                
+                <div class="form-group">
+                    <label for="nome">Nome do Projeto</label>
+                    <input type="text" id="nome" required >
+                </div>
+                <div class="form-group">
+                    <label for="sigla">Sigla</label>
+                    <input type="text" id="sigla" required>
+                </div>
+                <div class="form-group">
+                    <label for="tipo">Tipo</label>
+                    <select id="tipo" required>
+                        <option value="">Selecione...</option>
+                        <option value="Interno">Interno</option>
+                        <option value="Externo">Externo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="custo">Custo</label>
+                    <input type="number" step="0.01" id="custo" >
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" required>
+                        <option value="">Selecione...</option>
+                        <option value="A iniciar">A iniciar</option>
+                        <option value="Em andamento">Em andamento</option>
+                        <option value="Concluído">Concluído</option>
+                        <option value="Suspenso">Suspenso</option>                        
+                        <option value="Cancelado">Cancelado</option>
+                    </select>
+                </div>                
+                <div class="form-group  full-width">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao"></textarea>
+                </div>                
+                <div class="form-group  full-width">
+                    <button type="submit">Salvar</button>
+                </div>
+            </form>
+        </section>
+        <br>
+        <section>
+            <h2>Portfólio de Projetos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Sigla</th>
+                        <th>Tipo</th>
+                        <th>Custo</th>                        
+                        <th>Descrição</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="projetosTabelaBody">
+                    <!-- Linhas geradas dinamicamente -->
+                </tbody>
+            </table>
+
+        <!-- Modal para exibir histórico -->
+        <div id="historicoModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="header_left">
+                        <h2>Histórico do Projeto</h2>
+                    </div>
+                    <div class="header_right">
+                        <button type="button" class="btn-close" onclick="fecharModal()">×</button>
+                    </div>
+                </div>
+                <div class="modal-body" id="historico-container">
+                    <!-- Histórico será carregado aqui -->
+                </div>                
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Gestão de Portfólio de Projetos. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
