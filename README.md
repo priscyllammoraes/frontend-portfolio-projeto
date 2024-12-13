@@ -22,7 +22,7 @@ A interface web foi criada com **HTML**, **CSS** e **JavaScript**.
 ### 1. Clonar o Repositório
 
 ``` bash
-    git  clone  https://github.com/priscyllammoraes/backend-portfolio-projeto
+    git  clone  https://github.com/priscyllammoraes/frontend-portfolio-projeto
  ```
 
 ### 2. Abrir a Página HTML
