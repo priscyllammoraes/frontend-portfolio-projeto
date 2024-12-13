@@ -11,14 +11,17 @@
     <script src="./scripts.js"></script>
     
     <header>
-        <div class="header_left"><img src="./imagens/logo.png" alt="Logo"></div>
-        <div class="header_right"></div>
+        <div class="div-left"><img src="./imagens/logo.png" alt="Logo"></div>
+        <div class="div-right"></div>
     </header>
 
     <main>
-        <section>            
-            <h2>Adicionar Projeto</h2>
-                        
+        <section id="cadastrarProjetoSection">            
+            <div class="div-cadastro">
+                <div class="div-left"><h3>Adicionar Projeto</h3></div>
+                <div class="div-right"><button type="button" id="toggleFormButton">Ocultar formulário</button> <!-- Botão para alternar visibilidade --></div>
+            </div>
+            <div id="divFormulario">            
             <form id="formProjeto">                
                 <div class="form-group">
                     <label for="nome">Nome do Projeto</label>
@@ -26,19 +29,25 @@
                 </div>
                 <div class="form-group">
                     <label for="sigla">Sigla</label>
-                    <input type="text" id="sigla" required>
+                    <input type="text" id="sigla" required oninput="this.value = this.value.toUpperCase()" pattern="[A-Z]+" title="Apenas letras maiúsculas são permitidas.">
                 </div>
                 <div class="form-group">
                     <label for="tipo">Tipo</label>
                     <select id="tipo" required>
                         <option value="">Selecione...</option>
-                        <option value="Interno">Interno</option>
-                        <option value="Externo">Externo</option>
+                        <option value="Desenvolvimento de Software">Desenvolvimento de Software</option>
+                        <option value="Infraestrutura de TI">Infraestrutura de TI</option>
+                        <option value="Segurança da Informação">Segurança da Informação</option>
+                        <option value="Banco de Dados">Banco de Dados</option>
+                        <option value="Suporte e Manutenção">Suporte e Manutenção</option>
+                        <option value="Implementação de Novas Tecnologias">Implementação de Novas Tecnologias</option>
+                        <option value="Transformação Digital">Transformação Digital</option>
+                        <option value="Colaboração e Produtividade">Colaboração e Produtividade</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="custo">Custo</label>
-                    <input type="number" step="0.01" id="custo" >
+                    <input type="text" id="custo" required title="Insira um valor monetário no formato 0,00." oninput="formatarMoeda(this)">
                 </div>
                 <div class="form-group">
                     <label for="status">Status</label>
@@ -59,10 +68,11 @@
                     <button type="submit">Salvar</button>
                 </div>
             </form>
+        </div>
         </section>
-        <br>
+   
         <section>
-            <h2>Portfólio de Projetos</h2>
+            <h3>Portfólio de Projetos</h3>
             <table>
                 <thead>
                     <tr>
@@ -85,10 +95,10 @@
         <div id="historicoModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="header_left">
+                    <div class="div-left">
                         <h2>Histórico do Projeto</h2>
                     </div>
-                    <div class="header_right">
+                    <div class="div-right">
                         <button type="button" class="btn-close" onclick="fecharModal()">×</button>
                     </div>
                 </div>
@@ -102,5 +112,25 @@
     <footer>
         <p>&copy; 2024 Gestão de Portfólio de Projetos. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        // Seleciona a seção e o botão
+        const formSection = document.getElementById("divFormulario");
+        const toggleButton = document.getElementById("toggleFormButton");
+    
+        // Adiciona evento de clique ao botão
+        toggleButton.addEventListener("click", () => {
+            // Alterna a visibilidade da seção
+            if (formSection.style.display === "none") {
+                formSection.style.display = "block";
+                toggleButton.textContent = "Ocultar Formulário"; // Altera o texto do botão
+            } else {
+                formSection.style.display = "none";
+                toggleButton.textContent = "Exibir Formulário"; // Altera o texto do botão
+            }
+        });
+    </script>
 </body>
 </html>
+
+

@@ -39,11 +39,17 @@ header {
     color: var(--white);
 }
 
-.header_left {
+.div-cadastro {
+    display: flex; 
+    justify-content: space-between; /* Espaça os elementos para ocupar lados opostos */
+    
+}
+
+.div-left {
     flex: 1; /* Opcional: controla a largura relativa */
 }
 
-.header_right {
+.div-right {
     flex: 0; /* Opcional: controla a largura relativa */
     text-align: right; /* Alinha o conteúdo no lado direito */
 }
@@ -59,19 +65,35 @@ img {
 }
 
 /*-----------ESTILOS PARA O MAIN-----------*/
+
 section {
-    max-width: 800px;
+    max-width: 900px;
     margin: 1rem auto;
-    padding: 1rem;
+    padding: 0.5rem 1rem 1rem 1rem;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+#toggleFormButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.2rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 10px;
+    margin: 10px 0px 0px 0px;
+}
+
+#toggleFormButton:hover {
+    background-color: #0056b3;
+}
 
 
-h2 {
-    border-bottom: 1px solid #9bb9d8;
+
+h3 {
+    border-bottom: 1.5px solid #9bb9d8;
     padding-bottom: 0.3rem;
     margin-bottom: 0.8rem;
 }
@@ -127,11 +149,16 @@ h2 {
 
 
 /*-----------ESTILOS PARA O FORM-----------*/
+
+#divFormulario {
+    transition: all 0.3s ease-in-out;
+}
+
 form{
     display: flex;
     flex-wrap: wrap; /* Permite quebra de linha */
     gap: 7px; /* Espaçamento entre os elementos */
-    max-width: 900px; /* Limite de largura para o formulário */
+    max-width: 930px; /* Limite de largura para o formulário */
     margin: 0 auto; /* Centraliza o formulário na página */
     
 }
@@ -250,13 +277,21 @@ tbody td{
     background-color: var(--gray);
     padding: 0.4rem;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     --font-weight: 500;
-    letter-spacing: 0.040rem;
+    letter-spacing: 0.04rem;   
+    box-sizing: border-box;
 }
 
 tbody td:nth-child(1){
     border-left: 5px solid var(--blue);
+}
+
+tbody td:nth-child(5) { /* Estiliza a coluna "Custo" */
+    white-space: nowrap; /* Garante que o texto não quebre */
+    --min-width: 80px;    /* Define um tamanho mínimo */
+    text-align: right;   /* Alinha o texto à direita para valores monetários */
+    vertical-align: middle; /* Alinha verticalmente no centro */
 }
 
 tbody tr{
@@ -273,27 +308,27 @@ tbody tr:nth-child(even) {
 
 /* Define as cores para cada status */
 .status-a-iniciar {
-    background-color: var(--yellow); /* Cinza claro */
+    background-color: var(--yellow); 
     color: #000; /* Preto */
 }
   
 .status-em-andamento {
-    background-color: var(--blue); /* Azul claro */
+    background-color: var(--blue);
     color: #fff; /* Branco */
 }
   
 .status-suspenso {
-    background-color: var(--orange); /* Laranja */
+    background-color: var(--orange);
     color: #fff; /* Branco */
 }
   
 .status-cancelado {
-    background-color: #d6290b; /* Vermelho */
+    background-color: #d6290b;
     color: #fff; /* Branco */
 }
   
 .status-concluido {
-    background-color: var(--green); /* Verde */
+    background-color: var(--green);
     color: #fff; /* Branco */
 }
 
@@ -301,32 +336,32 @@ tbody tr:nth-child(even) {
 @media (max-width: 768px) {
     table {
         display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-        text-align: center;
+        white-space: wrap;
+        text-align: left;
+        width: 80%;
+        margin: auto;  
+        border-collapse: separate; 
+        border-spacing: 10px;
+      
     }
 
-    th, td {
-        white-space: nowrap;
-        text-align: center;
+    th, tbody td {
+        display: block;
+        white-space: wrap;
+        text-align: left;
+        width: 100%;
     }
 
     /* Ajuste do cabeçalho para não quebrar em telas pequenas */
     thead {
-        display: block;
-        position: sticky;
-        top: 0;
-        background-color: #f4f4f4;
+        display: none;
     }
 
     tr {
-        display: block;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
 
     td {
-        display: block;
-        --text-align: left;
         font-size: 12px;
     }
 
@@ -336,6 +371,31 @@ tbody tr:nth-child(even) {
         text-align: left;
         display: inline-block;
         width: 100px; /* Ajuste conforme necessário */
+    }
+    tbody td:nth-child(5) {
+        text-align: left;
+    }
+        
+    .button-container {
+        justify-content: right;
+        margin-top: -10px;
+    }
+
+    .icon {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .icon-button {
+        padding: 0 10px;
+    }
+    .icon-button:hover {
+        transform: scale(1.5);
+        background-color: transparent;
+    }
+
+    .icon-button:hover .tooltip {
+        font-size: 7px;
     }
 }
 
