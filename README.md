@@ -9,7 +9,6 @@ A interface web foi criada com **HTML**, **CSS** e **JavaScript**.
 1. **Interface Web**:
    - Página única (Single Page Application) para realizar todas as operações.
    - Modal para exibição dos históricos de cada projeto.
-
    
 ## Tecnologias Utilizadas
 
@@ -18,7 +17,13 @@ A interface web foi criada com **HTML**, **CSS** e **JavaScript**.
   - CSS3
   - JavaScript (ES6+)
 
-
 ## Como executar
 
-Basta fazer o download do projeto e abrir o arquivo index.html no seu browser.
+### 1. Clonar o Repositório
+
+``` bash
+    git  clone  https://github.com/priscyllammoraes/backend-portfolio-projeto
+ ```
+
+### 2. Abrir a Página HTML
+Abrir o arquivo index.html no seu browser.

@@ -13,12 +13,9 @@ carregarProjetos();
   --------------------------------------------------------------------------------------
 */
 async function carregarProjetos() {
-
-    //let url = API_URL + "/projetos" 
     
     try {
         const response = await fetch(`${API_URL}/projetos`);
-        //const response = await fetch(url);
         const projects = await response.json();
         const tabela = document.getElementById('projetosTabelaBody');
         tabela.innerHTML = ''; // Limpa a tabela antes de adicionar novos projetos
@@ -142,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
 async function buscarProjetoPorId(id) {
     try {
         const response = await fetch(`${API_URL}/projeto/${id}`);
@@ -203,8 +199,6 @@ async function editarProjeto(id) {
     }
 }
 
-
-
 function estiloTabelaStatus() {
     // Seleciona todas as células da tabela com a classe 'status'
     document.querySelectorAll('.status').forEach(cell => {
@@ -223,7 +217,6 @@ function estiloTabelaStatus() {
         } else if (status === "Concluído") {
           cell.classList.add('status-concluido');
         }
-
     })
 }
 
@@ -261,7 +254,6 @@ function formatarMoeda(input) {
     // Adiciona o "R$" antes do valor
     input.value = 'R$ ' + valor;
 }
-
 
 function deletarProjeto(projeto_id) {
     // Montando a URL para a requisição DELETE
